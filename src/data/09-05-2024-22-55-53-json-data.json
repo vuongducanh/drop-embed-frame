@@ -1,0 +1,32 @@
+{
+  "data": [
+    {
+      "id": "6a7f3260a4a",
+      "elementType": "ElementParagraph",
+      "props": {
+        "text": "Paragraphs element"
+      }
+    },
+    {
+      "id": "a7f3260a4ac",
+      "elementType": "ElementButton",
+      "props": {
+        "text": "Button Element"
+      }
+    },
+    {
+      "id": "7f3260a4ac7",
+      "elementType": "ElementParagraph",
+      "props": {
+        "text": "Paragraphs element"
+      }
+    },
+    {
+      "id": "f3260a4ac7f",
+      "elementType": "ElementButton",
+      "props": {
+        "text": "Button Element"
+      }
+    }
+  ]
+}

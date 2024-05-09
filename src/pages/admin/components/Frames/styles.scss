@@ -1,0 +1,12 @@
+.frames {
+  padding: 10px;
+  width: 20%;
+  border-right: 1px solid #240606;
+
+  .square {
+    margin: 4px;
+    padding: 20px;
+    border: 1px solid #240606;
+    cursor: move;
+  }
+}

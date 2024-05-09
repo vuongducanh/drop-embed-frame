@@ -1,0 +1,11 @@
+.content {
+  display: flex;
+  height: calc(100vh - 60px);
+}
+
+.content-drop {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
