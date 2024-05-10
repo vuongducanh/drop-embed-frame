@@ -29,18 +29,21 @@
 
 ## Functions
 
-1. Handles dragging elements to target (2h)
+1. Handle dragging elements to target (2h)
 2. Save data when finished dragging (2h)
 3. Handle click one of element and edit (2h)
 4. Save data when click button Save (2h)
-5. Handles the undo function (2h)
-6. Handles the redo function (2h)
-7. Handles the export function (1h)
-8. Handles the import function (1h)
-9. Handles the view function (1h)
-10. Handles the cancel edit function (0.5h)
+5. Handle the undo function (2h)
+6. Handle the redo function (2h)
+7. Handle the export function (1h)
+8. Handle the import function (1h)
+9. Handle the view function (1h)
+10. Handle view data Consumer (0.5)
+11. Handle the cancel edit function (0.5h)
 
-## TOTAL: 19.5h
+### Self test (3h)
+
+## TOTAL: 23h
 
 I have deployed the code to vercel, you can access it by following the link: https://drop-embed-frame.vercel.app/
 
