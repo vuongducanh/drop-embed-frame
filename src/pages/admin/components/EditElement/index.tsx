@@ -6,12 +6,12 @@ import { ELEMENT_TYPE, renderTextTitle } from '../../../../utils/common';
 import { cloneDeep } from 'lodash';
 export default function EditElement() {
   const { params, dataElementList, setDataElementList, set } = useDragDropElementContext();
-  const [valueTextInput, setValueTextInput] = useState('');
-  const [valueMessageInput, setValueMessageInputt] = useState('');
+  const [valueTextInput, setValueTextInput] = useState<any>('');
+  const [valueMessageInput, setValueMessageInputt] = useState<any>('');
 
   useEffect(() => {
-    setValueTextInput('')
-    setValueMessageInputt('')
+    setValueTextInput(params?.selectedElement?.props?.text ? params?.selectedElement.props?.text : '')
+    setValueMessageInputt((params?.selectedElement?.props?.message ? params?.selectedElement.props?.message : ''))
   }, [params?.selectedElement])
 
   const selectedElement: any = useMemo(() => {
