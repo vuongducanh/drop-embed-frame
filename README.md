@@ -40,4 +40,5 @@
 9. Handles the view function (1h)
 10. Handles the cancel edit function (0.5h)
 
+Gif demo: 
 I have deployed the code to vercel, you can access it by following the link: https://drop-embed-frame.vercel.app/
