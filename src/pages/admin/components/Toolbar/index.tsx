@@ -1,6 +1,7 @@
 import { cloneDeep } from 'lodash';
 import { useDragDropElementContext } from '../../../../context/context';
 import './styles.scss'
+import { useCallback } from 'react';
 
 export default function Toolbar() {
   const {
@@ -11,12 +12,21 @@ export default function Toolbar() {
     historyElementList,
     set,
     params,
+    setHistoryElementList,
   } = useDragDropElementContext();
+
+  console.log("pointerElementList = ", pointerElementList);
+  console.log("historyElementList = ", historyElementList);
 
   const undo = () => {
     if (pointerElementList > 0) {
       setPointerElementList(pointerElementList - 1);
       setDataElementList(historyElementList[pointerElementList - 1] as any);
+    }
+
+    if (pointerElementList === 0) {
+      setPointerElementList(-1)
+      setDataElementList([])
     }
   };
 
@@ -40,11 +50,17 @@ export default function Toolbar() {
       const frames = JSON.parse(jsonData);
 
       if (frames.data.length > 0) {
-        setDataElementList([...frames.data])
+        pushDataImport([...frames.data])
       }
     }
 
     reader.readAsText(file as any);
+  }
+
+  const pushDataImport = (data: any) => {
+    setDataElementList(data);
+    setHistoryElementList([data]);
+    setPointerElementList(0);
   }
 
   const handleExportData = () => {
@@ -73,7 +89,8 @@ export default function Toolbar() {
 
   const handleSaveData = () => {
     const cloneData = cloneDeep(dataElementList);
-    set("dataPreview", cloneData)
+    set("dataPreview", cloneData);
+    handleCancelEdit();
   }
 
   const handleGotoView = () => {
@@ -81,14 +98,24 @@ export default function Toolbar() {
     window.open('/consumer', '_blank');
   }
 
+  const handleCancelEdit = () => {
+    set("selectedElement", undefined);
+    set("dataConfiging", undefined);
+  }
+
+  const disableWhenEditting = useCallback(() => {
+    return !!params?.selectedElement || !!params?.dataConfiging;
+  }, [params?.selectedElement, params?.dataConfiging])
+
   return (
     <div className='toolbar' id='toolbar'>
       <button onClick={handleSaveData}>Save</button>
-      <button onClick={undo}>Undo</button>
-      <button onClick={redo}>Redo</button>
+      <button onClick={undo} disabled={disableWhenEditting() || pointerElementList === -1 }>Undo</button>
+      <button onClick={redo} disabled={disableWhenEditting() || pointerElementList === historyElementList.length - 1}>Redo</button>
       <button onClick={handleExportData} disabled={params?.dataPreview?.length === 0}>Export</button>
       <button onClick={handleImport}>Import</button>
       <button disabled={params?.dataPreview?.length === 0} onClick={handleGotoView}>View</button>
+      {params?.selectedElement && <button onClick={handleCancelEdit}>Cancel Edit</button>}
 
       <input type="file" id="importInput" onChange={handleChangeImportData} style={{ display: "none" }}></input>
     </div>

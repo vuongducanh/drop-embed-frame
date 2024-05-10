@@ -16,18 +16,33 @@ const Consumer = () => {
 
 export default Consumer
 
-// import { useState } from 'react';
+// import { useEffect, useState } from 'react';
+// import { uid } from 'uid';
 
 // export default function Consumer() {
 //   const [array, setArray] = useState([]);
 //   const [history, setHistory] = useState([]);
 //   const [pointer, setPointer] = useState(-1);
 
-//   console.log("pointer = ", pointer);
+//   useEffect(() => {
+//     console.log("array ", array);
+//   }, [array])
 
-//   const pushToArray = (value) => {
+//   useEffect(() => {
+//     console.log("pointer ", pointer);
+//   }, [pointer])
+
+//   useEffect(() => {
+//     console.log("history ", history);
+//   }, [history])
+
+//   console.log('================================================================');
+
+//   const pushToArray = (value: any) => {
 //     const newArray = [...array, value];
 //     const newHistory = [...history.slice(0, pointer + 1), newArray];
+//     console.log("newHistory = ", newHistory);
+
 //     setArray(newArray);
 //     setHistory(newHistory);
 //     setPointer(pointer + 1);
@@ -37,6 +52,11 @@ export default Consumer
 //     if (pointer > 0) {
 //       setPointer(pointer - 1);
 //       setArray(history[pointer - 1]);
+//     }
+
+//     if (pointer === 0) {
+//       setPointer(-1)
+//       setArray([])
 //     }
 //   };
 
@@ -49,7 +69,7 @@ export default Consumer
 
 //   return (
 //     <div>
-//       <button onClick={() => pushToArray('New Value')}>Push to Array</button>
+//       <button onClick={() => pushToArray(`${uid()}-New Value`)}>Push to Array</button>
 //       <button onClick={undo}>Undo</button>
 //       <button onClick={redo}>Redo</button>
 //       <ul>

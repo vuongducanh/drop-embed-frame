@@ -1,0 +1,32 @@
+{
+  "data": [
+    {
+      "id": "c470e3aabb8",
+      "elementType": "ElementParagraph",
+      "props": {
+        "text": "Paragraphs element"
+      }
+    },
+    {
+      "id": "470e3aabb88",
+      "elementType": "ElementButton",
+      "props": {
+        "text": "Button Element"
+      }
+    },
+    {
+      "id": "70e3aabb88b",
+      "elementType": "ElementParagraph",
+      "props": {
+        "text": "Paragraphs element"
+      }
+    },
+    {
+      "id": "0e3aabb88b1",
+      "elementType": "ElementButton",
+      "props": {
+        "text": "Button Element"
+      }
+    }
+  ]
+}
