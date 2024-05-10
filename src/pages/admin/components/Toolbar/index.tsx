@@ -15,9 +15,6 @@ export default function Toolbar() {
     setHistoryElementList,
   } = useDragDropElementContext();
 
-  console.log("pointerElementList = ", pointerElementList);
-  console.log("historyElementList = ", historyElementList);
-
   const undo = () => {
     if (pointerElementList > 0) {
       setPointerElementList(pointerElementList - 1);
